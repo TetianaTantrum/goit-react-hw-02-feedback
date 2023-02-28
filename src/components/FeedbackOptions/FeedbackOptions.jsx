@@ -1,5 +1,11 @@
 import React from 'react';
 import { ButtonList, Button } from './FeedbackOptions.styled';
+import {
+  BsEmojiHeartEyes,
+  BsEmojiNeutral,
+  BsEmojiFrown,
+  BsEmojiSunglasses,
+} from 'react-icons/bs';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <ButtonList>
@@ -11,6 +17,19 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => (
           onClick={() => onLeaveFeedback(option)}
         >
           {option}
+          {(() => {
+            console.log(option);
+            switch (option) {
+              case 'good':
+                return <BsEmojiHeartEyes />;
+              case 'neutral':
+                return <BsEmojiNeutral />;
+              case 'bad':
+                return <BsEmojiFrown />;
+              default:
+                return <BsEmojiSunglasses />;
+            }
+          })()}
         </Button>
       </li>
     ))}
@@ -18,15 +37,3 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => (
 );
 
 export default FeedbackOptions;
-
-// linear-gradient(to right,
-//   green 0%,
-//   green ${(good / total) * 100}%,
-//   yellow ${(good / total) * 100}%,
-//   yellow ${(neutral / total) * 100 + (good / total) * 100}%,
-//   red ${
-//     (good / total) * 100+
-//     (neutral / total) * 100
-//
-//   }%,
-//   red 100%)
