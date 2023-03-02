@@ -21,11 +21,13 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => (
             console.log(option);
             switch (option) {
               case 'good':
-                return <BsEmojiHeartEyes />;
+                break <BsEmojiHeartEyes />;
               case 'neutral':
-                return <BsEmojiNeutral />;
+                break <BsEmojiNeutral />;
+
               case 'bad':
-                return <BsEmojiFrown />;
+                break <BsEmojiFrown />;
+
               default:
                 return <BsEmojiSunglasses />;
             }
